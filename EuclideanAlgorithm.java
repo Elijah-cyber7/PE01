@@ -3,13 +3,14 @@ public class EuclideanAlgorithm {
 
         int num1 = 20;
         int num2 = 12;
+        
         int steps = 0;
         int dividend = num1;
         int divisor = num2;
+        
         int gcd;
         int quotient;
         int remainder;
-
         System.out.printf("Finding the greatest common divisor of %d and %d.%n", num1, num2);
 
         if (divisor > dividend) {
@@ -24,14 +25,9 @@ public class EuclideanAlgorithm {
         remainder = -1;
         do {
             steps++;
-            quotient = dividend / divisor;
-            remainder = dividend % divisor;
-
-            System.out.printf(
-                "Step %d: %d = %d * %d + %d%n",
-                steps, dividend, divisor, quotient, remainder
-            );
-
+            quotient = dividend/divisor;
+            remainder = dividend%divisor;
+            System.out.printf("Step %d: %d = %d * %d + %d%n", steps, dividend, divisor, quotient, remainder);
             gcd = divisor;
             dividend = divisor;
             divisor = remainder;
@@ -39,7 +35,6 @@ public class EuclideanAlgorithm {
         } while (remainder != 0);
 
         System.out.println("The GCD is " + gcd + ".");
-
         switch (steps) {
             case 1:
                 System.out.println("Only one step was needed!");
@@ -57,11 +52,7 @@ public class EuclideanAlgorithm {
                 System.out.println(steps + " steps is a lot of steps!");
         }
 
-        System.out.printf(
-            "%d and %d are %srelatively prime.%n",
-            num1,
-            num2,
-            (gcd == 1 ? "" : "not ")
+        System.out.printf("%d and %d are %srelatively prime.%n",num1,num2,(gcd == 1 ? "" : "not ")
         );
     }
 }
